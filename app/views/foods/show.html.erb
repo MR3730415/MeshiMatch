@@ -1,0 +1,10 @@
+<p><%= @food.name %>Mypage</p>
+<% @food_images.each do |food_image| %>
+<div>
+  <%= link_to food_image_path(food_image.id) do %>
+  <%= attachment_image_tag food_image, :image %>
+  <% end %>
+  <p>店舗名：<%= food_image.shop_name %></p>
+  <p>投稿タイトル:<%= food_image.title %></p>
+  <p>説明：<%= food_image.caption %></p>
+<% end %>
