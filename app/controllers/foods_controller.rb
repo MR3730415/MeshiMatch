@@ -3,4 +3,5 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food_images = @food.food_images
   end
+  
 end

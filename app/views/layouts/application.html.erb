@@ -10,21 +10,51 @@
   </head>
 
   <body>
-     <% if food_signed_in? %>
-      <li>
-        <%= link_to '投稿フォーム', new_food_image_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_food_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_food_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_food_session_path %>
-      </li>
-    <% end %>
+    <nav>
+      <div>
+        <nav class = "navbar navbar-expand-lg">
+          <div class="container">
+            <%= link_to "Meshimatch", root_path, class: "navbar-brand text-dark border rounded p-3" %></a>
+            <!--<div class = "row">-->
+            <ul class = "navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete,  class: "text-dark" %>
+                </button>
+              <% elsif food_signed_in? %>
+              <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "投稿", new_food_image_path, class: "text-dark" %>
+              </button>
+              <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "投稿一覧", food_images_path, class: "text-dark" %>
+                </button>
+              
+                <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "ログアウト", destroy_food_session_path, method: :delete, class: "text-dark" %>
+                </button>
+              <% else %>
+               <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "USER新規登録", new_user_registration_path, class: "text-dark" %>
+                </button>
+                
+                <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "USERログイン", new_user_session_path, class: "text-dark" %>
+                </button>
+             
+              <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "店舗登録", new_food_registration_path, class: "text-dark" %>
+              </button>
+             
+             <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "店舗ログイン", new_food_session_path, class: "text-dark" %>
+             </button>
+              <% end %>
+            </ul>
+            <!--</div>-->
+        </div>
+      </nav>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
