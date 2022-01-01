@@ -24,6 +24,12 @@ class FoodImagesController < ApplicationController
     redirect_to food_images_path
   end
   
+  def search
+  @food_images = FoodImage.search(params[:keyword])
+  @keyword = params[:keyword]
+  render "index"
+  end
+  
   private
 
   def food_image_params

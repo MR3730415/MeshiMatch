@@ -1,3 +1,15 @@
+<div class="search-form">
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<div class="food-list">
+  <% @food_images.each do |food_image| %>
+    <%= food_image.title %>
+  <% end %>
+</div>
+
 <% @food_images.each do |food_image| %>
 <div>
   <%= link_to food_image_path(food_image.id) do %>

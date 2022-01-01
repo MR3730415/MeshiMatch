@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'foods/show'
   devise_for :foods
    root to: 'homes#top'
+   get 'search' => 'food_images#search'
    resources :food_images, only: [:new, :create, :index, :show, :destroy]
    resources :foods, only: [:show]
    resources :users, only: [:show, :edit, :update]
