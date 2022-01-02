@@ -6,8 +6,7 @@
   <p>営業時間：<%= @food_image.hour %></p>
   <p>休業日：<%= @food_image.holiday %></p>
    <p>アクセス：<%= @food_image.address %>
-  <div id="map"></div>
-  </p>
+  <div id="map"></div></p>
   <p>投稿日時：<%= @food_image.created_at.strftime('%Y/%m/%d') %></p>
 </div>
 <div>
@@ -15,6 +14,19 @@
     <%= link_to "削除", food_image_path(@food_image), method: :delete %>
   <% end %>
 </div>
+<% if @food_image.likes_by?(current_user) %>
+    <p>
+      <%= link_to food_image_likes_path(@food_image), method: :delete do %>
+      <i class="far fa-heart like-btn" ><%= @food_image.likes.count %></i>
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to food_image_likes_path(@food_image), method: :post do %>
+       <i class="far fa-heart like-btn" ><%= @food_image.likes.count %></i>
+      <% end %>
+    </p>
+  <% end %>
 <script type="text/javascript">
   function initMap() {
 #latitude,longitudeから位置を特定

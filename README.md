@@ -1,24 +1,48 @@
-# README
+# MESHI MATCH
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+旅行先や出張先で美味しいご飯が食べたいけど食べたい場所が見つからない、自分のお店を新しくオープンしたけど集客が伸び悩んでいる…そんな悩みを一気に解決できるサイト
 
-Things you may want to cover:
+・deviseの認証機能で、新規登録・ログインすることで利用可能です。
 
-* Ruby version
+・お店側は店舗情報や料理の写真を投稿しUser側はいいねをすることにより保存することができる。
 
-* System dependencies
+・Userは検索機能で店舗検索もできる。
 
-* Configuration
+・いいね数を集計してランキング形式で表示
+### サイトテーマ
+食べてみたいや食べてもらいたいをメインにしており、Userとお店をマッチさせるWEBサイト
+### テーマを選んだ理由
+ポートフォリオを製作するにあたり、当初は自分周辺の飲食店を表示できそこの詳細が知れるというもの製作しようとしていました。それに加えて誰かの役に立てるものはつくれないかと考えた時、現在のコロナ禍で集客が減少しているお店が投稿した店舗情報が閲覧できるものを製作しようと思いました。
 
-* Database creation
+### ターゲットユーザ
+・旅行者や新しい土地に行く社会人や学生
 
-* Database initialization
+・食べることが趣味な人
 
-* How to run the test suite
+・ランチタイムの社会人
 
-* Services (job queues, cache servers, search engines, etc.)
+・新規オープンする飲食店や集客が伸び悩んでいる店舗
 
-* Deployment instructions
+### 主な利用シーン
+・新生活や旅行などで初めて行く土地などでの飲食店探したい時
 
-* ...
+・集客が伸び悩んでいる店舗が集客する時
+
+・新規で飲食店を始める方が新規のお客さんを呼び込む時
+
+## 設計書
+<...>
+
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1zo6S2fAyr5Qnp8fExYon4sA6VIINC-zd-eAuh2YOf6Y/edit?usp=sharing>
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+- 作成後記述
