@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
   devise_for :users
-  get 'users/show'
   
 
   get 'foods/show'
@@ -12,5 +11,6 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
   end
    resources :foods, only: [:show]
+   
    resources :users, only: [:show, :edit, :update]
 end

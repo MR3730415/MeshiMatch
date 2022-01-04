@@ -18,10 +18,15 @@
             
             <ul class = "navbar-nav ml-auto">
               <% if user_signed_in? %>
-              <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                
+                <button type="button" class="btn btn-warning text-light border rounded mx-3">
                 <%= link_to "MeshiFind", food_images_path, class: "text-dark" %>
                 </button>
                 
+                <button type="button" class="btn btn-warning text-light border rounded mx-3">
+                <%= link_to "Mypage", user_path(current_user.id) , class: "text-dark" %>
+                </button>
+          
                 <button type="button" class="btn btn-warning text-light border rounded mx-3">
                 <%= link_to "log out", destroy_user_session_path, method: :delete,  class: "text-dark" %>
                 </button>

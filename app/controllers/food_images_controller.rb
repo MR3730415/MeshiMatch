@@ -11,7 +11,7 @@ class FoodImagesController < ApplicationController
   end
 
   def index
-    @food_images = FoodImage.all
+    @food_images = FoodImage.page(params[:page]).reverse_order
   end
 
   def show
