@@ -1,3 +1,14 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home-container{
+  background-image: image-url("home.jpg");
+  height: 800px;
+  background-size: cover;
+}
+
+.application-title{
+  font-family: 'Abril Fatface', cursive;
+  color:white;
+}
