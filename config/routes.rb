@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  root to: 'homes#top'
   devise_for :users
+  get 'users/show'
+  
+
   get 'foods/show'
   devise_for :foods
-   root to: 'homes#top'
    get 'search' => 'food_images#search'
   
    resources :food_images, only: [:new, :create, :index, :show, :destroy]do

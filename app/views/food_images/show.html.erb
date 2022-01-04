@@ -5,15 +5,13 @@
   <p>説明：<%= @food_image.caption %></p>
   <p>営業時間：<%= @food_image.hour %></p>
   <p>休業日：<%= @food_image.holiday %></p>
-   <p>アクセス：<%= @food_image.address %>
-  <div id="map"></div></p>
-  <p>投稿日時：<%= @food_image.created_at.strftime('%Y/%m/%d') %></p>
-</div>
+
 <div>
 <% if @food_image.food == current_food %>
     <%= link_to "削除", food_image_path(@food_image), method: :delete %>
   <% end %>
 </div>
+
 <% if @food_image.likes_by?(current_user) %>
     <p>
       <%= link_to food_image_likes_path(@food_image), method: :delete do %>
@@ -27,10 +25,27 @@
       <% end %>
     </p>
   <% end %>
-<script type="text/javascript">
-  function initMap() {
-#latitude,longitudeから位置を特定
-    var test ={lat: <%= @food_image.latitude %>, lng: <%= @food_image.longitude %>};
+  
+  
+  <div class="row my-3">
+    <div class="col-md-6">
+      <h5>アクセス：<%= @food_image.address %></h5>
+      <div class="d-flex align-items-center">
+        <div id='map'></div>
+        <style>
+        #map{
+          width: 340px;
+          height: 250px;
+        }
+        </style>
+
+        <script>
+          let map
+          let geocoder
+
+          function initMap(){
+            // geocoderを初期化
+           var test ={lat: <%= @food_image.latitude %>, lng: <%= @food_image.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 15, 
               center: test
@@ -54,14 +69,8 @@
        infowindow.open(map, marker);
      });
   }
-</script>
 
-
-<script async defer
-              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
-</script>
-
-<style type="text/css">
-  #map { height: 200px;
-         width: 70%;}
-</style>
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
+      </div>
+    </div>
