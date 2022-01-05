@@ -13,4 +13,6 @@ Rails.application.routes.draw do
    resources :foods, only: [:show]
    
    resources :users, only: [:show, :edit, :update]
+   
+   resources :photos, only: [:show, :index]
 end

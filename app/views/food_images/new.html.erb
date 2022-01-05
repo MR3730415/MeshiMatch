@@ -1,19 +1,48 @@
-<h1>店舗投稿フォーム</h1>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-7 col-sm-10 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">
+          <strong>店舗投稿フォーム</strong>
+      </h5>
 <%= form_with model: @food_image, local:true do |f| %>
 
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>店舗名</h4>
-  <%= f.text_field :shop_name %>
-  <h4>投稿タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>説明</h4>
-  <%= f.text_area :caption %>
-  <h4>アクセス</h4>
-  <%= f.text_field :address, placeholder: "住所" %>
-  <h4>営業時間</h4>
-  <%= f.text_field :hour %>
-  <h4>休業日</h4>
-  <%= f.text_field :holiday %>
-  <%= f.submit '投稿' %>
+<div class="col text-center">
+            <table class="table table-borderless">
+                <tbody>
+                  <tr><td><h4>店舗名</h4></td>
+                  <td><%= f.text_field :shop_name %></td>
+                  </tr>
+                  
+                  <tr><td><h4>タイトル</h4></td>
+                  <td><%= f.text_field :title %></td>
+                  </tr> 
+                  
+                  <tr><td><h4>説明</h4></td>
+                  <td><%= f.text_area :caption %></td>
+                  </tr>
+                  
+                  <tr><td><h4>アクセス</h4></td>
+                  <td> <%= f.text_field :address, placeholder: "住所" %></td>
+                  </tr>
+                        
+                  <tr><td><h4>営業時間</h4></td>
+                  <td> <%= f.text_field :hour %></td>
+                  </tr>  
+                  
+                  <tr><td><h4>休業日</h4></td>
+                  <td> <%= f.text_field :holiday %></td>
+                  </tr>   
+                  
+                  <tr><td><h4>画像</h4></td>
+                  <td> <%= f.attachment_field :image %></td>
+                  </tr>
+                </tbody>
+            </table>
+            <div class="col text-center">
+                <%= f.submit "投稿" ,class: 'btn btn-lg btn-warning btn-block' %>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 <% end %>

@@ -1,25 +1,29 @@
-
-  <%= attachment_image_tag @food_image, :image , size: "800×600", format: 'jpeg' %><div id='map'></div>
+<div>
+  <%= attachment_image_tag @food_image, :image %>
   <p>店舗名：<%= @food_image.shop_name %></p>
   <p>投稿タイトル：<%= @food_image.title %></p>
   <p>説明：<%= @food_image.caption %></p>
   <p>営業時間：<%= @food_image.hour %></p>
   <p>休業日：<%= @food_image.holiday %></p>
-  <p>アクセス：<%= @food_image.address %></p>
-  
-  <div id='map'></div>
-   
-        <div>
-          <% if @food_image.food == current_food %>
-          <%= link_to "削除", food_image_path(@food_image), method: :delete %>
-          <% end %>
-        </div>
-       </div>
-</div>
-</div>
-</div>
-
-
+  <div class="row my-3">
+    <div class="col-md-6">
+      <h5>アクセス：<%= @food_image.address %></h5>
+    
+        <div id='map'></div>
+        
+<% if @food_image.likes_by?(current_user) %>
+    <p>
+      <%= link_to food_image_likes_path(@food_image), method: :delete do %>
+      <i class="far fa-heart like-btn" ><%= @food_image.likes.count %></i>
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to food_image_likes_path(@food_image), method: :post do %>
+       <i class="far fa-heart like-btn" ><%= @food_image.likes.count %></i>
+      <% end %>
+    </p>
+  <% end %>
         <style>
         #map{
           width: 340px;
@@ -62,4 +66,3 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
       </div>
     </div>
-    
