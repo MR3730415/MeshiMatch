@@ -1,3 +1,4 @@
+<div class=background>
 <div class="container">
   <div class="row">
     <div class="food-list">
@@ -23,7 +24,7 @@
               <tr>
                 <td>
                  <%= link_to food_image_path(food_image.id) do %>
-                 <%= attachment_image_tag food_image, :image,size: "300x300", format: 'jpg' %>
+                 <%= attachment_image_tag food_image, :image,size: "auto", format: 'jpg' %>
                  <% end %>
                 </td>
               </tr>
@@ -45,3 +46,4 @@
     </div>
   </div>
 </div>
+</div

@@ -1,9 +1,10 @@
+<div class=background>
 <div class="container my-5">
   <div class="wrapper form-signin">
    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>    
    <%= render "users/shared/error_messages", resource: resource %>
 
-    <h3 class="form-signin-heading">探し人新規登録</h3>
+    <h3 class="form-signin-heading">新規登録</h3>
     <hr class="colorgraph"><br>
     <div class="field">
     <%= f.label :ユーザー名 %><br />
@@ -35,5 +36,6 @@
 <%= render "users/shared/links" %>
 </div>
 
+</div>
 </div>
 </div>
