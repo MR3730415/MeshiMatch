@@ -1,23 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="card-big-one col-lg-10 d-flex align-items-center">
+    <div><%= attachment_image_tag @food_image, :image , size: "800×600", format: 'jpeg' %></div>
+  <div class="col-lg-8">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>
+                <div>
+                  <% if @food_image.food == current_food %>
+                  <%= link_to "削除", food_image_path(@food_image), method: :delete %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+                <td><p>店舗名：<%= @food_image.shop_name %></p></td>
+            </tr>
+            <tr>
+              <td><p><%= @food_image.title %></p></td>
+            </tr>
+            <tr>
+              <td><p><%= @food_image.caption %></p></p></td>
+            </tr>
+            <tr>
+              <td><p>営業時間：<%= @food_image.hour %></p></td>
+            </tr>
+            <tr>
+              <td><p>休業日：<%= @food_image.holiday %></p></td>
+            </tr>
+            <tr>
+              <td><p>アクセス：<%= @food_image.address %></p><div id='map'></div></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
 
-  <%= attachment_image_tag @food_image, :image , size: "800×600", format: 'jpeg' %><div id='map'></div>
-  <p>店舗名：<%= @food_image.shop_name %></p>
-  <p>投稿タイトル：<%= @food_image.title %></p>
-  <p>説明：<%= @food_image.caption %></p>
-  <p>営業時間：<%= @food_image.hour %></p>
-  <p>休業日：<%= @food_image.holiday %></p>
-  <p>アクセス：<%= @food_image.address %></p>
-  
-  <div id='map'></div>
-   
-        <div>
-          <% if @food_image.food == current_food %>
-          <%= link_to "削除", food_image_path(@food_image), method: :delete %>
-          <% end %>
-        </div>
-       </div>
-</div>
-</div>
-</div>
 
 
         <style>
@@ -60,6 +78,5 @@
 
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
-      </div>
-    </div>
-    
+ </div> 
+ </div>
